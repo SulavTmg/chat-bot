@@ -19,19 +19,19 @@ const Chat = ({ messages, currentUser, children }: ChatProp) => {
             {messages.map((msg, index: number) => (
               <li
                 key={index}
-                className={`mb-1 p-2 rounded-full max-w-[60%] relative ${
-                  msg.userName === currentUser
+                className={`mb-8 p-2 rounded-full max-w-[60%] relative ${
+                  msg.userName === "admin"
+                    ? "text-slate-500 self-center font-medium text-[10px]"
+                    : msg.userName === currentUser
                     ? "bg-blue-500 text-white self-end"
                     : "bg-gray-200 text-black self-start"
                 }`}
               >
                 {msg.message}
-                {msg.userName !== currentUser ? (
-                  <span className="absolute text-[10px] left-2 -top-[19px]">
+                {msg.userName !== currentUser && msg.userName !== "admin" && (
+                  <span className="absolute text-[10px] text-slate-500 left-2 -top-[19px]">
                     {msg.userName}
                   </span>
-                ) : (
-                  ""
                 )}
               </li>
             ))}
