@@ -24,15 +24,17 @@ function App() {
         .configureLogging(LogLevel.Information)
         .build();
 
-      connection.on("JoinSpecificChatRoom", (userName, msg) => {
-        console.log(msg);
+      connection.on("JoinSpecificChatRoom", (userName, message) => {
+        setMessages((messages) => [...messages, { userName, message }]);
       });
 
       connection.on("ReceiveSpecificMessage", (userName, message) => {
         setMessages((messages) => [...messages, { userName, message }]);
       });
 
-      await connection.start();
+      await connection
+        .start()
+        .catch((err) => console.log("Connection failed.", err));
       await connection.invoke("JoinSpecificChatRoom", { userName, chatRoom });
       setConnection(connection);
     } catch (error) {
@@ -57,7 +59,7 @@ function App() {
           <SendMessage sendMessage={sendMessage} />
         </Chat>
       )}
-      </>
+    </>
   );
 }
 
