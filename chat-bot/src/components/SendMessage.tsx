@@ -6,7 +6,7 @@ type SendMessageProp = {
 };
 
 const SendMessage = ({ sendMessage }: SendMessageProp) => {
-  const [msg, setMsg] = useState<string | "">("");
+  const [msg, setMsg] = useState<string>("");
   return (
     <div className="absolute bottom-0 left-0 w-full p-4">
       <form

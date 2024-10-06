@@ -5,8 +5,8 @@ type WaitingRoomProp = {
 };
 
 const WaitingRoom = ({ joinChatRoom }: WaitingRoomProp) => {
-  const [userName, setUserName] = useState<string | "">("");
-  const [chatRoom, setChatRoom] = useState<string | "">("");
+  const [userName, setUserName] = useState<string>("");
+  const [chatRoom, setChatRoom] = useState<string>("");
 
   return (
     <div className="w-full h-screen flex justify-center items-center">
