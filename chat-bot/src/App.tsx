@@ -13,8 +13,8 @@ function App() {
   const [connection, setConnection] = useState<signalR.HubConnection | null>(
     null
   );
-  const [messages, setMessages] = useState<messages[] | []>([]);
-  const [currentUser, setCurrentUser] = useState<string | "">("");
+  const [messages, setMessages] = useState<messages[]>([]);
+  const [currentUser, setCurrentUser] = useState<string>("");
 
   const joinChatRoom = async (userName: string, chatRoom: string) => {
     try {
